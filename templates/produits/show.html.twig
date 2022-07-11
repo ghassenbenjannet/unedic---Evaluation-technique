@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ produit.nom }}{% endblock %}
+{% block body %}
+<h1>{{ produit.nom }}</h1>
+<h4>Catégorie:</h3> <p>{{ produit.cat }}</p>
+<h4>Quantité:</h3> <p>{{ produit.qte }}</p>
+<h4>Prix:</h3><p> {{ produit.prix }}€</p>
+<hr>
+<a href="/" class="btn btn-dark">Retour</a>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+{% block title%} Liste des produits{% endblock %}
+{% block body %}
+    {% if produits %}
+            <h4>Smartphone</h4>
+            {% set cmp = 0 %}
+            <table id="articles" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Référence produit</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produit in produits %}
+                        <tr> 
+                            {% if produit.cat =="Smartphone" %}
+                                {% set cmp = cmp+1 %}
+                                <td>{{ produit }}</td>
+                                    <td>
+                                    <a href="/produit/{{ produit.id }}" class="btn btn-dark">Détails</a>
+                                    <a href="/produit/edit/{{ produit.id }}" class="btn btn-dark">Modifier</a>
+                                    <a href="/produit/delete/{{ produit.id }}" class="btn btn-danger" onclick="return confirm('Etes vous sûr de supprimer ce produit?');">Supprimer</a>
+                                    </td>
+                            {% endif %}
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if cmp == 0 %}
+                    <p>Pas de Smartphone</p>  
+                {% endif %}
+
+        <h4>Tablette</h4>
+        {% set cmp = 0 %}
+        <table id="articles" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Référence produit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                <tr>
+                    {% if produit.cat =="Tablette" %}
+                        {% set cmp = cmp+1 %}
+                        <td>{{ produit }}</td>
+                        <td>
+                            <a href="/produit/{{ produit.id }}" class="btn btn-dark">Détails</a>
+                            <a href="/produit/edit/{{ produit.id }}" class="btn btn-dark">Modifier</a>
+                            <a href="/produit/delete/{{ produit.id }}" class="btn btn-danger" onclick="return confirm('Etes vous sûr de supprimer ce produit?');">Supprimer</a>
+                        </td>
+                        {% endif %}
+                </tr>
+                
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        {% if cmp == 0 %}
+                    <p>Pas de Tablettes</p>  
+                {% endif %}
+
+
+
+        <h4>Ordinateur</h4>
+        {% set cmp = 0 %}
+        <table id="articles" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Référence produit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                    <tr>
+                    {% if produit.cat =="Ordinateur" %}
+                        {% set cmp = cmp+1 %}
+                        <td>{{ produit }}</td>
+                        <td>
+                            <a href="/produit/{{ produit.id }}" class="btn btn-dark">Détails</a>
+                            <a href="/produit/edit/{{ produit.id }}" class="btn btn-dark">Modifier</a>
+                            <a href="/produit/delete/{{ produit.id }}" class="btn btn-danger" onclick="return confirm('Etes vous sûr de supprimer ce produit?');">Supprimer</a>
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                
+        </tbody>
+    </table>
+    {% if cmp == 0 %}
+                    <p>Pas d'Ordinateur</p>  
+                {% endif %}
+
+    {% else %}
+        <p>Aucun produits</p>
+    {% endif %}
+{% endblock %}
