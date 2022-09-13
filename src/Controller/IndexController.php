@@ -151,5 +151,6 @@ public function delete(Request $request, $id) {
     return $this->redirectToRoute('produit_list');
     }
      
+    //By Ghassen
 
 }
